@@ -1,0 +1,35 @@
+{
+  "name": "react-todo-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/reactTodo.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsx --watch --watch-preserve-output src/reactTodo.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurfaraujo/react-todo-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthurfaraujo/react-todo-back/issues"
+  },
+  "homepage": "https://github.com/arthurfaraujo/react-todo-back#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
