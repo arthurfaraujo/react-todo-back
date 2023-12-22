@@ -1,4 +1,4 @@
-import { prisma } from '../prisma/connection'
+import { prisma } from '../../prisma/connection'
 import { UserItf } from '../interfaces/interfaces'
 
 const User = prisma.user
