@@ -11,6 +11,17 @@ async function create(user: UserItf) {
   return newUser
 }
 
+async function findUnique(email: string) {
+  const user = await User.findUnique({
+    where: {
+      email
+    }
+  })
+
+  return user
+}
+
 export default {
-  create
+  create,
+  findUnique
 }
