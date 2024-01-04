@@ -8,7 +8,7 @@ async function create(todo: TodoItf) {
     data: todo
   })
 
-  return newTodo.completed
+  return newTodo
 }
 
 async function update(todo: TodoItf) {
