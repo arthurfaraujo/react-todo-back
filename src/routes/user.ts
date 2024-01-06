@@ -34,13 +34,13 @@ router.post('/login', async (req, res) => {
       .json({ authenticated: false, message: 'Invalid password' })
   }
 
-  res
-    .status(200)
-    .json({
-      authenticated: true,
-      message: 'User authenticated',
-      token: jwt.sign({ id: user.id, nickname: user.nickname }, JWT_SECRET)
+  res.status(200).json({
+    authenticated: true,
+    message: 'User authenticated',
+    token: jwt.sign({ id: user.id, nickname: user.nickname }, JWT_SECRET, {
+      expiresIn: '4h'
     })
+  })
 })
 
 export default router
