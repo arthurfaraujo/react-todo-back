@@ -14,10 +14,8 @@ export function auth(
 
     const auth = jwt.verify(token, process.env.JWT_SECRET as string)
 
-    if (auth) {
-      req.userId = (auth as JwtPayload).id
-      return next()
-    }
+    req.userId = (auth as JwtPayload).id
+    return next()
   } catch (e) {
     res.status(401).json({ error: 'Unauthenticated' })
   }
