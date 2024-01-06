@@ -5,16 +5,14 @@ import { auth } from '../middlewares/auth'
 
 const router = Router()
 
-router.get('/', async (req, res) => {
-  const todos = await Todo.getAll()
+router.get('/', auth, async (req: AuthenticatedRequest, res) => {
+  const todos = await Todo.getAllByUser(req.userId as string)
 
   res.json({ todos })
 })
 
 router.post('/', auth, async (req: AuthenticatedRequest, res) => {
   const todo = req.body
-
-  console.log(req.userId)
 
   const newTodo = await Todo.create({ ...todo, userId: req.userId })
 

@@ -22,8 +22,12 @@ async function update(todo: TodoItf) {
   return updatedTodo
 }
 
-async function getAll() {
-  const todos = await Todo.findMany()
+async function getAllByUser(userId: string) {
+  const todos = await Todo.findMany({
+    where: {
+      userId
+    }
+  })
 
   return todos
 }
@@ -31,5 +35,5 @@ async function getAll() {
 export default {
   create,
   update,
-  getAll
+  getAllByUser
 }
