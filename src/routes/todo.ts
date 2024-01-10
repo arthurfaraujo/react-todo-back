@@ -25,7 +25,17 @@ router.delete('/:id', auth, async (req: AuthenticatedRequest, res) => {
 
   await Todo.remove(todoId, userId)
 
-  res.json({ removed: true})
+  res.json({ removed: true })
+})
+
+router.patch('/:id', auth, async (req: AuthenticatedRequest, res) => {
+  const todoId = req.params.id
+  const userId = req.userId as string
+  const todo = req.body
+
+  await Todo.update({ ...todo, id: todoId, userId })
+
+  res.json({ updated: true })
 })
 
 export default router
