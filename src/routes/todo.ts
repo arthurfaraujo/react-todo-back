@@ -19,4 +19,13 @@ router.post('/', auth, async (req: AuthenticatedRequest, res) => {
   res.json({ created: true, todo: newTodo })
 })
 
+router.delete('/:id', auth, async (req: AuthenticatedRequest, res) => {
+  const todoId = req.params.id
+  const userId = req.userId as string
+
+  await Todo.remove(todoId, userId)
+
+  res.json({ removed: true})
+})
+
 export default router
