@@ -22,6 +22,15 @@ async function update(todo: TodoItf) {
   return updatedTodo
 }
 
+async function remove(id: string, userId: string) {
+  await Todo.delete({
+    where: {
+      userId,
+      id
+    }
+  })
+}
+
 async function getAllByUser(userId: string) {
   const todos = await Todo.findMany({
     where: {
@@ -35,5 +44,6 @@ async function getAllByUser(userId: string) {
 export default {
   create,
   update,
+  remove,
   getAllByUser
 }
