@@ -43,4 +43,16 @@ router.post('/login', async (req, res) => {
   })
 })
 
+router.get('/verify/:token', (req, res) => {
+  const { token } = req.params
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET)
+
+    res.json({ verified: true, decoded })
+  } catch (error) {
+    res.json({ verified: false, error })
+  }
+})
+
 export default router
